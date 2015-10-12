@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+(time bundle exec rake build) &&
+(time rm -rf site/) &&
+(time node_modules/.bin/broccoli build site/) &&
+(say -r400 "Complete")

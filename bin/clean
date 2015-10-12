@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+rm -rf site/ &&
+rm -rf transpile/ &&
+rm -rf tmp/

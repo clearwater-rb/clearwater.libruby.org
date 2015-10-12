@@ -1,0 +1,21 @@
+{
+  "name": "application",
+  "version": "1.0.0",
+  "authors": [
+    "Kurtis Rainbolt-Greene <me@kurtisrainboltgreene.name>"
+  ],
+  "description": "An example Clearwater application",
+  "main": "site/application.js",
+  "license": "MIT",
+  "homepage": "http://clearwaterapp.com",
+  "ignore": [
+    "node_modules/",
+    "bower_components/",
+    "spec/",
+    "build/",
+    "site/"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.3"
+  }
+}

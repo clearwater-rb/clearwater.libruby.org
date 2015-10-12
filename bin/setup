@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+bin/clean &&
+mkdir transpile/ &&
+mkdir tmp/ &&
+bundle install &&
+npm install &&
+node_modules/.bin/bower install
