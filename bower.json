@@ -7,7 +7,7 @@
   "description": "An example Clearwater application",
   "main": "site/application.js",
   "license": "MIT",
-  "homepage": "http://clearwaterapp.com",
+  "homepage": "http://clearwater.libruby.org",
   "ignore": [
     "node_modules/",
     "bower_components/",
