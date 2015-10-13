@@ -8,5 +8,5 @@ source "https://rubygems.org/" do
   gem "guard-shell", "~> 0.7.1"
 end
 
-gem "opal", github: "opal/opal", ref: "ec07a03ba333d92e3fea7e8fa7556cea9ad8d616"
+gem "opal", github: "opal/opal", ref: "d1612d4b316b395bac514f6b160919309698a7a8"
 gem "clearwater", github: "clearwater-rb/clearwater", ref: "296aa7deaf381de709325ef065b11db2a860ed79"

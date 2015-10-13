@@ -7,19 +7,10 @@ class Application
   attr_accessor :component
   attr_accessor :manager
   attr_accessor :after
+  attr_accessor :root
 
-  def initialize(root:, &configuration)
-    # instance_exec(self, &configuration)
-    self.store = Application::STORE
-    self.router = Application::Router
-    self.component = Application::Component::Content
-    self.manager = Application::Manager
-    self.after = -> do
-      store["events"]["render"]["after"].each do |signal|
-        $document.trigger(*signal.map(&:to_n))
-      end
-      store["events"]["render"]["after"] = []
-    end
+  def initialize(&configuration)
+    instance_exec(self, &configuration)
     manager.new(component: component.new, router: router.new, element: root).call(&after)
   end
 
@@ -30,17 +21,16 @@ class Application
 end
 
 $document.ready do
-  Application.new(root: $document.body)
-  # do |let|
-  #   let.store = Application::STORE
-  #   let.router = Application::Router
-  #   let.component = Application::Component::Root
-  #   let.manager = Application::Manager
-  #   let.after = -> do
-  #     store["events"]["render"]["after"].each do |signal|
-  #       $document.trigger(*signal.map(&:to_n))
-  #     end
-  #     store["events"]["render"]["after"] = []
-  #   end
-  # end
+  Application.new do |let|
+    let.root = $document.body
+    let.store = Application::STORE
+    let.router = Application::Router
+    let.component = Application::Component::Content
+    let.manager = Application::Manager
+    let.after = -> do
+      store["events"]["render"]["after"].each do |signal|
+        $document.trigger(*signal.map(&:to_n))
+      end.clear
+    end
+  end
 end
